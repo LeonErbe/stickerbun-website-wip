@@ -1,0 +1,286 @@
+/*	Table of Contents
+
+	1. Root
+	2. Nav
+	3. Containers
+	4. Text
+	5. Misc
+
+	-----------------------------	*/
+
+/* 	1. Root and Media Queries */
+
+:root {
+	/* Color Variables */
+	--brand-primary: #FFFDF6; 	/* offwhite */
+	--brand-secondary: #E0EFDC; /* sea-foamy green, but more yellow */
+	--text-main: #333; 			/* charcoal, but no blue */
+	--link-main: #438E41; 		/* forest green */
+	--link-hover: #93C785;		/* similar to brand-secondary, but darker */
+
+	/* Display & Box Model */
+	width: 100%;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+	/* Color */
+	background: var(--brand-primary);
+	color: var(--text-main);
+
+	/* Text */
+	font-size: 20px;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+@media only screen and (max-width: 595px) {
+	:root {
+		overflow-x: hidden;
+		overflow-y: hidden;
+
+		font-size: 16px;
+	}
+
+	nav#nav-desktop {
+		visibility: hidden;
+	}
+
+	div#nav-mobile {
+		visibility: visible;
+	}
+}
+
+@media only screen and (min-width: 595px) and (max-width: 768px) {
+	:root {
+		font-size: 17.5px;
+	}
+
+	nav#nav-desktop {
+		visibility: hidden;
+	}
+
+	div#nav-mobile {
+		visibility: visible;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+	:root {
+		font-size: 19px;
+	}
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+	:root {
+		font-size: 21.5px;
+	}
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1600px) {
+	:root {
+		font-size: 22.75px;
+	}
+}
+
+@media only screen and (min-width: 1600px) {
+	:root {
+		font-size: 24px;
+	}
+}
+
+/* 	2. Nav */
+
+nav#nav-mobile {
+	/* Display & Box Model */
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	height: 80px;
+	/* all four attributes below necessary to keep it against the edge of the screen */
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	position: absolute;
+
+	/* Color */
+	background: var(--brand-secondary);
+
+	/* Text */
+	text-align: center;
+}
+
+nav#nav-desktop {
+	/* Display & Box Model */
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	height: 65px;
+	align-items: center;
+	justify-content: space-between;
+	/* all four attributes below necessary to keep it against the edge of the screen */
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	position: absolute;
+
+	/* Color */
+	background: var(--brand-secondary);
+
+	/* Text */
+	text-align: center;
+}
+
+img#nav-logo {
+	width: 65px;
+	height: 65px;
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 9998;
+}
+
+a#nav-logo-link {
+	position: relative;
+}
+
+ul#nav-list {
+	margin: 0 auto; /* centers element */
+	padding: 0;
+	list-style-type: none;
+	height: 100%;
+
+	text-align:center;
+	position: relative;
+	display: inline-block;
+}
+
+li.nav-item {
+	float: left;
+	height: 100%;
+
+	text-align: center;
+	line-height: 65px;
+}
+
+li.nav-item:hover {
+	background: var(--brand-primary);
+}
+
+a.nav-link {
+	/* Display & Box Model */
+	display: block;
+	margin: 0 28px;
+
+	/* Color */
+	color: var(--link-main);
+
+	/* Text */
+	text-align: center;
+	font-weight: bold;
+}
+
+a.nav-link:hover,
+a.nav-link:hover:visited,
+a.nav-link:visited {
+	color: var(--link-main);
+}
+
+/* activated via jQuery when current */
+li.item-current,
+li.item-current:hover {
+	background: var(--link-main);
+}
+
+a.link-current,
+a.link-current:visited,
+a.link-current:hover,
+a.link-current:visited:hover {
+	color: var(--brand-primary);
+}
+
+/* 3. Containers */
+
+div#main-content {
+	padding-top: clamp(25px, 7.5%, 40px);
+	padding-right: clamp(25px, 7.5%, 40px);
+	padding-bottom: clamp(15px, 5%, 30px);
+	padding-left: clamp(25px, 7.5%, 40px);
+}
+
+div.grid {
+  	display: grid;
+  	grid-template-columns: repeat(4, 1fr);
+  	grid-template-rows: auto;
+  	grid-column-gap: 1px;
+  	margin-bottom: 20px;
+}
+
+div.item {
+	grid-column-start: auto;
+  	grid-row-start: auto;
+	padding: 5px;
+}
+
+/*	4. Text */
+
+h1 {
+	font-size: 2.4rem;
+	margin-top: 80px;
+}
+
+h2 {
+	font-size: 2.25rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+h4 {
+	font-size: 1.85rem;
+}
+
+h5 {
+	font-size: 1.75rem;
+}
+
+h6 {
+	font-size: 1.7rem;
+}
+
+a {
+	color: var(--link-main);
+
+	text-decoration: none;
+}
+
+a:hover,
+a:visited:hover {
+	color: var(--link-hover);
+}
+
+a:visited {
+	color: var(--link-main);
+}
+
+/* skip to main-content, located above viewport */
+a#skip-nav {
+	padding: 10px 15px;
+	border-radius: 0 0 10px 10px;
+	position: absolute;
+	transform: translateY(-130%);
+	margin: 0;
+	z-index: 9999;
+	outline: 1.6px solid black;
+
+	background: var(--brand-primary);
+}
+
+/* ^only pops into the viewport when focused */
+a#skip-nav:focus {
+	transform: translateY(-30%);
+}
+
+/* 5. Misc
