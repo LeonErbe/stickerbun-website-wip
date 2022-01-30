@@ -16,17 +16,17 @@
 	<title>StickerBun | Shop Handmade Stickers and Art</title>
 </head>
 <body>
-	<a href="#main-content" tabindex="0" id="skip-nav">Skip to Content</a>
+	<a href="#main-content" tabindex="0" id="skip-nav">Skip to Content</a> <!-- accessibility: ignore nav bar by skipping to main-content -->
 	<header>
-		<div id="nav-mobile">
+		<nav id="nav-mobile">
 			<div id="nav-burger">
 
 			</div>
-		</div>
+		</nav>
 		<script src="js/stickerbun.js">
 			currentPage(); //indicates current page in nav bar by adding classes to li and a tags, referenced in stickerbun.js line 1
 		</script>
-		<img src="img/logo.jpg" id="nav-logo"><a href="home.html" id="nav-logo-link"></a>
+		<a href="index.html"><img src="img/logo.jpg" alt="StickerBun Logo" id="nav-logo"></a>
 		<nav id="nav-desktop">
 			<ul id="nav-list">
 				<li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
