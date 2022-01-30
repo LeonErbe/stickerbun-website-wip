@@ -16,8 +16,13 @@
 	<title>StickerBun | Frequently Asked Questions (FAQ)</title>
 </head>
 <body>
-	<a href="#main-content" tabindex="0" id="skip-nav">Skip to Content</a>
+	<a href="#main-content" tabindex="0" id="skip-nav">Skip to Content</a> <!-- accessibility: ignore nav bar by skipping to main-content -->
 	<header>
+		<nav id="nav-mobile">
+			<div id="nav-burger">
+
+			</div>
+		</nav>
 		<script src="js/stickerbun.js">
 			currentPage(); //indicates current page in nav bar by adding classes to li and a tags, referenced in stickerbun.js line 1
 		</script>
