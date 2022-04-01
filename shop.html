@@ -9,10 +9,10 @@
 	<!-- Google Font Roboto Condensed Light -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="css/stickerbun.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- load jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="js/stickerbun.js"></script>
 	<meta name="description" content="Browse handmade, waterproof stickers and other artwork online, crafted and sold by a small business owner.">
 	<meta name="keywords" content=""> <!-- no more than 10 keywords, up to 160 characters in length -->
@@ -25,17 +25,12 @@
 </head>
 <body>
 	<a href="#main-content" tabindex="0" id="skip-nav">Skip to Content</a> <!-- accessibility: ignore nav bar by skipping to main-content -->
-	<header>
+	<header role="navigation">
 		<nav id="nav-mobile">
-			<div id="nav-burger">
-
-			</div>
+			<a href="index.html"><img src="img/logo.jpg" alt="StickerBun Logo" role="logo" id="nav-logo"></a>
 		</nav>
-		<script src="js/stickerbun.js">
-			currentPage(); //indicates current page in nav bar by adding classes to li and a tags, referenced in stickerbun.js line 1
-		</script>
-		<a href="index.html"><img src="img/logo.jpg" alt="StickerBun Logo" id="nav-logo"></a>
 		<nav id="nav-desktop">
+			<a href="index.html"><img src="img/logo.jpg" alt="StickerBun Logo" role="logo" id="nav-logo"></a>
 			<ul id="nav-list">
 				<li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
 				<li class="nav-item"><a href="shop.html" class="nav-link">SHOP</a></li>
@@ -44,13 +39,157 @@
 				<li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
 				<li class="nav-item"><a href="contact.html" class="nav-link">CONTACT</a></li>
 			</ul>
+			<script src="js/stickerbun.js">
+				currentPage();	//indicates current page in nav bar by adding classes to li and a tags, referenced in stickerbun.js line 1
+			</script>
 		</nav>
-	</header>
-	<div id="main-content">
+	</header role="navigation">
+	<main id="main-content">
+		<script src="js/stickerbun.js">
+			resizeCard();
+		</script>
 		<h1>Shop</h1>
-		<p>
-			degarnish mukti blosmy basement laborsaving unctiousness Petalia assonantic guytrash sendal deputy reverberate greige centauri truffler unsolemnize stepminnie enseam acuductor agral exopathic submanor quadrinodal <a href="https://youtube.com">cephalopod</a>
-		</p>
-	</div>
+		<div class="grid" id="shop">	<!-- shop start -->
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?losangeles" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?atlanta" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?los-angeles" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?santabarbara" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?santamonica" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?beverlyhills" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?cleveland" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?denver" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?beverly-hills" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?hollywood" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?miami" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?newyork" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?santa-monica" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?hollywoodhills" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+			<div class="shop-item">
+				<img src="https://source.unsplash.com/random/1280x1024/?arizona" class="shop-thumbnail">
+				<div class="item-info">
+					<span class="item-name">This Is A Sticker</span>
+					<span class="price">$1,000,000</span>
+				</div>
+			</div>
+		</div>	<!-- shop end -->
+	</main>
+	<footer role="footer" class="grid">
+		<ul class="footer-list" id="social-list">
+			<li class="footer-item">
+				<a href="https://www.facebook.com/StickerBun" class="social-link">
+					<img src="img/social-icons/fb-circle.png" alt="Facebook" class="social-img" id="fb">
+				</a>
+			</li>
+			<li class="footer-item">
+				<a href="https://www.instagram.com/StickerBun" class="social-link">
+					<img src="img/social-icons/ig-square.png" alt="Instagram" class="social-img">
+				</a>
+			</li>
+			<li class="footer-item">
+				<a href="https://www.twitter.com/StickerBun" class="social-link">
+					<img src="img/social-icons/twitter-circle.png" alt="Twitter" class="social-img">
+				</a>
+			</li>
+			<li class="footer-item">
+				<a href="https://www.linkedin.com/in/rahatul-erbe" class="social-link">
+					<img src="img/social-icons/linkedin-circle.png" alt="LinkedIn" class="social-img">
+				</a>
+			</li>
+			<li class="footer-item">
+				<a href="https://www.youtube.com/c/RahaErbe" class="social-link">
+					<img src="img/social-icons/yt-circle.png" alt="YouTube" class="social-img">
+				</a>
+			</li>
+		</ul>
+		<ul class="footer-list" id="additional-links">
+			<li class="footer-item"><a href="https://github.com/LeonErbe" class="bottom-link">Copyright</a></li>
+			<li class="footer-item"><a href="https://github.com/LeonErbe" class="bottom-link">Privacy Policy</a></li>
+			<li class="footer-item"><a href="https://github.com/LeonErbe" class="bottom-link">Terms of Use</a></li>
+		</ul>
+	</footer>
 </body>
 </html>
