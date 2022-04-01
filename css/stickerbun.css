@@ -4,23 +4,32 @@
 	2. Nav
 	3. Containers
 	4. Text
-	5. Media Queries
+	5. Shop
+	6. Footer
+	7. Media Queries
 
 	-----------------------------	*/
 
-/* 	1. Root */
+/* 	1. Root ---- mobile first */
+
+/* reset margin, padding, and font-weight to override later */
+* {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+
+	font-weight: 300;
+}
 
 :root {
 	/* Color Variables */
-	--brand-primary: #FFFDF6; 	/* offwhite */
+	--brand-primary: #FFFDF6; 	/* yellowy offwhite */
 	--brand-secondary: #E0EFDC; /* sea-foamy green, but more yellow */
 	--text-main: #333; 			/* charcoal, but no blue */
 	--link-main: #438E41; 		/* forest green */
-	--link-hover: #93C785;		/* similar to brand-secondary, but darker */
+	--link-hover: #93C785;		/* brand-secondary, but darker */
 
 	/* Display & Box Model */
-	width: 100%;
-	padding: 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
 
@@ -29,25 +38,26 @@
 	color: var(--text-main);
 
 	/* Text */
-	font-size: 20px;
 	font-family: 'Roboto Condensed', sans-serif;
+	font-size: calc(16px + 0.2vw);
+	line-height: 1.55;
+}
+
+html {
+	max-height: max-content;
 }
 
 /* 	2. Nav */
 
-/* if(viewport-width < 900px) */
+/* if(viewport-width < 950px) */
 nav#nav-mobile {
+	/* Nav Height */
+	--nav-height: calc(50px + 1vmin);
+
 	/* Display & Box Model */
-	width: 100%;
-	overflow: hidden;
-	margin: 0;
-	padding: 0;
-	height: clamp(55px, 10vh, 65px);
-	/* all four attributes below necessary to keep it against the edge of the screen */
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	position: absolute;
+	margin-bottom: 10px;
+	height: var(--nav-height);
+	align-items: center;
 
 	/* Color */
 	background: var(--brand-secondary);
@@ -56,21 +66,15 @@ nav#nav-mobile {
 	text-align: center;
 }
 
-/* if(viewport-width > 900px) */
+/* 	if(viewport-width >= 950px) */
 nav#nav-desktop {
+	/* Nav Height */
+	--nav-height: calc(50px + 1vmin);
+
 	/* Display & Box Model */
-	width: 100%;
-	overflow: hidden;
-	margin: 0;
-	padding: 0;
-	height: clamp(55px, 10vh, 65px);
-	align-items: center;
-	justify-content: space-between;
-	/* all four attributes below necessary to keep it against the edge of the screen */
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	position: absolute;
+	display: none;
+	margin-bottom: 10px;
+	height: var(--nav-height);
 
 	/* Color */
 	background: var(--brand-secondary);
@@ -80,35 +84,22 @@ nav#nav-desktop {
 }
 
 img#nav-logo {
-	width: clamp(55px, 10vh, 65px);
-	height: clamp(55px, 10vh, 65px);
-	top: 0;
 	left: 0;
-	position: absolute;
 	z-index: 9998;
-}
-
-a#nav-logo-link {
-	position: relative;
+	position: absolute;
+	width: var(--nav-height);
+	height: var(--nav-height);
 }
 
 ul#nav-list {
-	margin: 0 auto; /* centers element */
-	padding: 0;
 	list-style-type: none;
-	height: 100%;
-
-	text-align:center;
-	position: relative;
 	display: inline-block;
 }
 
 li.nav-item {
 	float: left;
-	height: 100%;
 
-	text-align: center;
-	line-height: clamp(55px, 10vh, 65px);
+	line-height: var(--nav-height);
 }
 
 li.nav-item:hover {
@@ -118,14 +109,13 @@ li.nav-item:hover {
 a.nav-link {
 	/* Display & Box Model */
 	display: block;
-	margin: 0 2.5vw;
+	margin-inline: clamp(10px, 2vw, 50px);
 
 	/* Color */
 	color: var(--link-main);
 
 	/* Text */
-	text-align: center;
-	font-weight: bold;
+	font-size: calc(1rem + 0.1vw);
 }
 
 a.nav-link:hover,
@@ -134,326 +124,323 @@ a.nav-link:visited {
 	color: var(--link-main);
 }
 
-/* activated via jQuery when current */
+/* 	activated via JavaScript when current */
 li.item-current,
 li.item-current:hover {
 	background: var(--link-main);
 }
 
+/* 	activated via JavaScript when current */
 a.link-current,
-a.link-current:visited,
 a.link-current:hover,
+a.link-current:visited,
 a.link-current:visited:hover {
 	color: var(--brand-primary);
+
+	font-weight: 400;
 }
 
-/* 3. Containers */
+/* 	3. Containers */
 
-div#main-content {
-	padding-top: clamp(25px, 7.5%, 40px);
-	padding-right: clamp(25px, 7.5%, 40px);
-	padding-bottom: clamp(15px, 5%, 30px);
-	padding-left: clamp(25px, 7.5%, 40px);
+main {
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+	padding-block: calc(5px + 1.3vmax);
+	padding-inline: 14px;
+	scroll-behavior: smooth;
 }
 
-div.grid {
-  	display: grid;
-  	grid-template-columns: repeat(4, 1fr);
-  	grid-template-rows: auto;
-  	grid-column-gap: 1px;
-  	margin-bottom: 20px;
-}
-
-div.item {
-	grid-column-start: auto;
-  	grid-row-start: auto;
-	padding: 5px;
+.grid {
+	display: grid;
 }
 
 /*	4. Text */
 
 h1 {
-	margin-top: 5vh;
+	margin-block: calc(10px + 1vh);
+	max-width: 70ch;
 
-	font-size: 2.4rem;
 	text-align: center;
+	font-size: calc(1.25rem + 1vw);
+	font-weight: 400;
 }
 
 h2 {
-	font-size: 2.25rem;
+	font-size: calc(1.075rem + 0.7vw);
 }
 
 h3 {
-	font-size: 2rem;
+	font-size: calc(1.065rem + 0.6vw);
 }
 
 h4 {
-	font-size: 1.85rem;
+	font-size: calc(1.05rem + 0.5vw);
 }
 
 h5 {
-	font-size: 1.75rem;
+	font-size: calc(1.035rem + 0.4vw);
 }
 
 h6 {
-	font-size: 1.7rem;
+	font-size: calc(1.025rem + 0.3vw);
 }
 
-a {
+p {
+	max-width: 70ch;
+	margin-bottom: 16px;
+
+	font-size: calc(1.02rem + 0.2vw)
+}
+
+a, a:visited {
 	color: var(--link-main);
 
 	text-decoration: none;
 }
 
-a:hover,
-a:visited:hover {
+a:hover:not(a.nav-link, a.nav-current, a.bottom-link),
+a:visited:hover:not(a.nav-link, a.nav-current, a.bottom-link) {
 	color: var(--link-hover);
 }
 
-a:visited {
-	color: var(--link-main);
+a:focus:not(a.nav-link, a.bottom-link),
+a:visited:focus:not(a.nav-link, a.bottom-link) {
+	background: var(--brand-secondary);
 }
 
-/* located above viewport, skip to main-content, which is located below the nav bar */
+/* 	located above viewport, skip to main-content, which is located below the nav bar */
 a#skip-nav {
+	z-index: 9999;
+	position: absolute;
 	padding: 10px 15px;
 	border-radius: 0 0 10px 10px;
-	position: absolute;
 	transform: translateY(-130%);
-	margin: 0;
-	z-index: 9999;
-	outline: 1.6px solid black;
+	border: 1.4px solid var(--text-main);
 
 	background: var(--brand-primary);
 }
 
-/* ^only pops into the viewport when focused */
-a#skip-nav:focus {
-	transform: translateY(-30%);
+a#skip-nav:visited {
+	color: var(--link-main);
 }
 
-/* 5. Media Queries */
+a#skip-nav:hover,
+a#skip-nav:visited:hover {
+	color: var(--link-hover);
+}
 
-/* hide scroll bars and activate nav-mobile for all mobile phones regardless of orientation */
-@media only screen and (max-width: 900px) {
-	:root {
-		overflow-x: hidden;
-		overflow-y: hidden;
+/* 	^only pops into viewport when focused */
+a#skip-nav:focus {
+	transform: translateY(-20%);
+}
+
+/*	5. Shop */
+
+div#shop {
+	grid-template-columns: repeat(60, 1fr);
+	column-gap: calc(5px + 0.35vw);
+	row-gap: calc(8px + 0.5vw);
+
+	padding: 12.5px;
+}
+
+div.shop-item {
+	grid-column: span 60;	/* 1 per row -- # of shop-items icreases with vw */
+	grid-row: span 2;
+
+	max-width: 90vw;
+	box-shadow: -10px 10px 6.5px -7.5px #918F76;
+}
+
+img.shop-thumbnail {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+	margin-bottom: -10px;
+}
+
+div.item-info {
+	padding-inline: 5px;
+
+	background-color: var(--brand-secondary);
+}
+
+div.item-info > span.item-name {
+	display: block;
+
+	font-size: 1.2rem;
+	font-weight: 400;
+	text-align: center;
+}
+
+div.item-info > span.price {
+	display: block;
+
+	color: var(--link-main);
+
+	font-size: 1.05rem;
+	text-align: center;
+}
+
+/* 	6. Footer */
+
+footer {
+	/* Socials Size */
+	--footer-social: calc(27.5px + 2.75vmin);
+
+	/* Grid */
+	grid-template-columns: repeat(15, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+
+	/* Box Model */
+	border-top: 2px solid var(--link-main);
+	height: calc(100px + 12.5vh);
+	margin-top: calc(50px + 5vh);
+	padding-top: calc(8px + 1vmin);
+
+	/* Colors */
+	color: var(--text-main);
+	background: var(--brand-secondary);
+}
+
+ul.footer-list {
+	display: flex;
+	list-style-type: none;
+	justify-content: center;
+	height: var(--footer-social);
+}
+
+ul#social-list {
+	grid-column: span 15;
+	grid-row: 1;
+}
+
+li.footer-item {
+	float: left;
+}
+
+a.social-link:focus,
+a.social-link:visited:focus {
+	background: var(--brand-primary);
+}
+
+img.social-img {
+	width: var(--footer-social);
+	height: var(--footer-social);
+	margin-inline: calc(2px + 0.1vw);
+	border-radius: 50%;
+}
+
+img.social-img:hover {
+	animation-name: squish;
+	animation-timing-function: ease-out;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes squish {							/* TO-DO: fix animation flowing outside img/li/ul element(s) */
+    0%, 100% {transform: scale(1, 1);}
+    10% {transform: scale(1.1, 0.9);}
+    30% {transform: scale(0.9, 1.1);}
+    50% {transform: scale(1, 1);}
+}
+
+ul#additional-links {
+	grid-column: span 15;
+	grid-row: 6;
+}
+
+a.bottom-link,
+a.bottom-link:visited {
+	margin-block: 10px;
+	margin-inline: calc(8px + 1vw);
+
+	font-size: calc(0.5rem + 0.2vmin);
+}
+
+a.bottom-link:hover,
+a.bottom-link:hover:visited {
+	text-decoration: underline;
+}
+
+a.bottom-link:focus,
+a.bottom-link:visited:focus {
+	background: var(--brand-primary);
+
+	padding: 3px;
+	border-radius: 50%;
+}
+
+/* 	7. Media Queries */
+
+/* large desktop screens and TVs */
+@media only screen and (min-width: 2700px) {
+	main {
+		padding-inline: 5vmax;
 	}
 
+	div.shop-item {
+		grid-column: span 6;	/* 10 per row */
+	}
+}
+
+@media only screen and (min-width: 1920px) and (max-width: 2700px) {
+	main {
+		padding-inline: 5vmax;
+	}
+
+	div.shop-item {
+		grid-column: span 10;	/* 6 per row */
+	}
+}
+
+/* desktop screens */
+@media only screen and (min-width: 1420px) and (max-width: 1920px) {
+	main {
+		padding-inline: 3.75vmax;
+	}
+
+	div.shop-item {
+		grid-column: span 12;	/* 5 per row */
+	}
+}
+
+/* notebooks and laptops */
+@media only screen and (min-width: 1136px) and (max-width: 1420px) {
+	main {
+		padding-inline: 3vmax;
+	}
+
+	div.shop-item {
+		grid-column: span 15;	/* 4 per row */
+	}
+}
+
+@media only screen and (min-width: 1000px) {
 	nav#nav-desktop {
-		visibility: hidden;
+		display: block;
 	}
 
 	nav#nav-mobile {
-		visibility: visible;
+		display: none;
 	}
 }
 
-/* change font-size to 16px smaller portrait-oriented mobile phones */
-@media only screen and (max-width: 595px) {
-	:root {
-		font-size: 16px;
+/* tablets */
+@media only screen and (min-width: 848px) and (max-width: 1136px) {
+	main {
+		padding-inline: 2.5vmax;
+	}
+
+	div.shop-item {
+		grid-column: span 20;	/* 3 per row */
 	}
 }
 
-/* change font-size to 17.5px for landscape-oriented mobile phones and portrait-oriented tablets */
-@media only screen and (min-width: 595px) and (max-width: 768px) {
-	:root {
-		font-size: 17.5px;
-	}
-}
-
-/* change font-size to 19px for larger phones in landscape-orientation and tablets */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-	:root {
-		font-size: 19px;
-	}
-}
-
-/* change font-size to 20.5px for larger tablets and smaller notebooks*/
-@media only screen and (min-width: 1024px) and (max-width: 1280px) {
-	:root {
-		font-size: 20.5px;
-	}
-}
-
-/* change font-size to 21.75px for medium-sized laptops*/
-@media only screen and (min-width: 1280px) and (max-width: 1600px) {
-	:root {
-		font-size: 21.75px;
-	}
-}
-
-/* increase font-size (especially for p and a tags), adjust nav bar, and set h1 margin-top for standard desktop screens */
-@media only screen and (min-width: 1600px) and (max-width: 1920px) {
-	:root {
-		font-size: 22.5px;
-	}
-
-	nav#nav-desktop {
-		height: clamp(50px, 10.5vh, 80px);
-	}
-
-	img#nav-logo {
-		width: clamp(50px, 10.5vh, 80px);
-		height: clamp(50px, 10.5vh, 80px);
-	}
-
-	li.nav-item {
-		line-height: clamp(50px, 10.5vh, 80px);
-	}
-
-	a.nav-link {
-		margin: 0 3vw;
-	}
-
-	h1 {
-		margin-top: clamp(80px, 12.5vh, 142px);
-	}
-
-	h1 {
-		margin-top: 6vh;
-	}
-
-	p,
-	a {
-		font-size: 1.15rem;
-	}
-}
-
-/* increase font-size (especially for p and a tags), adjust nav bar, and set h1 margin-top for larger desktop screens and standard TV's */
-@media only screen and (min-width: 1920px) and (max-width: 2400px) {
-	:root {
-		font-size: 28.5px;
-	}
-
-	nav#nav-desktop {
-		height: clamp(60px, 10.5vh, 145px);
-	}
-
-	img#nav-logo {
-		width: clamp(60px, 10.5vh, 145px);
-		height: clamp(60px, 10.5vh, 145px);
-	}
-
-	li.nav-item {
-		line-height: clamp(60px, 10.5vh, 145px);
-	}
-
-	a.nav-link {
-		margin: 0 3vw;
-	}
-
-	h1 {
-		margin-top: clamp(80px, 12.5vh, 185px);
-	}
-
-	h1 {
-		margin-top: 6vh;
-	}
-
-	p,
-	a {
-		font-size: 1.1rem;
-	}
-}
-
-/* increase font-size (especially for p and a tags), adjust nav bar, and set h1 margin-top for even larger desktop screens and larger TV's */
-@media only screen and (min-width: 2400px) and (max-width: 2850px) {
-	:root {
-		font-size: 32px;
-	}
-
-	nav#nav-desktop {
-		height: clamp(60px, 11.5vh, 160px);
-	}
-
-	img#nav-logo {
-		width: clamp(60px, 11.5vh, 160px);
-		height: clamp(60px, 11.5vh, 160px);
-	}
-
-	li.nav-item {
-		line-height: clamp(60px, 11.5vh, 160px);
-	}
-
-	a.nav-link {
-		margin: 0 3vw;
-	}
-
-	h1 {
-		margin-top: clamp(80px, 12.5vh, 185px);
-	}
-
-	p,
-	a {
-		font-size: 1.2rem;
-	}
-}
-
-/* increase font-size (especially for p and a tags), adjust nav bar, and set h1 margin-top for huge desktop screens and even larger TV's */
-@media only screen and (min-width: 2850px) and (max-width: 3840px) {
-	:root {
-		font-size: 37.5px;
-	}
-
-	nav#nav-desktop {
-		height: clamp(60px, 11.5vh, 160px);
-	}
-
-	img#nav-logo {
-		width: clamp(60px, 11.5vh, 160px);
-		height: clamp(60px, 11.5vh, 160px);
-	}
-
-	li.nav-item {
-		line-height: clamp(60px, 11.5vh, 160px);
-	}
-
-	a.nav-link {
-		margin: 0 3vw;
-	}
-
-	h1 {
-		margin-top: clamp(80px, 12.5vh, 185px);
-	}
-
-	p,
-	a {
-		font-size: 1.3rem;
-	}
-}
-
-/* increase font-size (especially for p and a tags), adjust nav bar, and set h1 margin-top for biggest desktop screens and biggest TV's */
-@media only screen and (min-width: 3840px) {
-	:root {
-		font-size: 50px;
-	}
-
-	nav#nav-desktop {
-		height: clamp(60px, 11.5vh, 160px);
-	}
-
-	img#nav-logo {
-		width: clamp(60px, 11.5vh, 160px);
-		height: clamp(60px, 11.5vh, 160px);
-	}
-
-	li.nav-item {
-		line-height: clamp(60px, 11.5vh, 160px);
-	}
-
-	a.nav-link {
-		margin: 0 3vw;
-	}
-
-	h1 {
-		margin-top: clamp(80px, 12.5vh, 185px);
-	}
-
-	p,
-	a {
-		font-size: 1.4rem;
+/* bigger phones */
+@media only screen and (min-width: 520px) and (max-width: 848px) {
+	div.shop-item {
+		grid-column: span 30;	/* 2 per row */
 	}
 }
