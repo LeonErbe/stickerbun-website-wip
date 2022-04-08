@@ -43,19 +43,14 @@
 	line-height: 1.55;
 }
 
-html {
-	max-height: max-content;
-}
-
 /* 	2. Nav */
 
 /* if(viewport-width < 950px) */
 nav#nav-mobile {
 	/* Nav Height */
-	--nav-height: calc(50px + 1vmin);
+	--nav-height: calc(35px + 1.25vw);
 
 	/* Display & Box Model */
-	margin-bottom: 10px;
 	height: var(--nav-height);
 	align-items: center;
 
@@ -69,12 +64,12 @@ nav#nav-mobile {
 /* 	if(viewport-width >= 950px) */
 nav#nav-desktop {
 	/* Nav Height */
-	--nav-height: calc(50px + 1vmin);
+	--nav-height: calc(35px + 1.5vmax);
 
 	/* Display & Box Model */
 	display: none;
-	margin-bottom: 10px;
 	height: var(--nav-height);
+	margin-bottom: calc(20px + 0.5vmin);
 
 	/* Color */
 	background: var(--brand-secondary);
@@ -85,7 +80,6 @@ nav#nav-desktop {
 
 img#nav-logo {
 	left: 0;
-	z-index: 9998;
 	position: absolute;
 	width: var(--nav-height);
 	height: var(--nav-height);
@@ -98,7 +92,6 @@ ul#nav-list {
 
 li.nav-item {
 	float: left;
-
 	line-height: var(--nav-height);
 }
 
@@ -115,7 +108,7 @@ a.nav-link {
 	color: var(--link-main);
 
 	/* Text */
-	font-size: calc(1rem + 0.1vw);
+	font-size: calc(1.1rem + 0.2vw);
 }
 
 a.nav-link:hover,
@@ -146,7 +139,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items:center;
-	padding-block: calc(5px + 1.3vmax);
+	padding-block: calc(22.5px + 0.75vmax);
 	padding-inline: 14px;
 	scroll-behavior: smooth;
 }
@@ -163,6 +156,7 @@ h1 {
 
 	text-align: center;
 	font-size: calc(1.25rem + 1vw);
+	text-transform: uppercase;
 	font-weight: 400;
 }
 
@@ -239,36 +233,41 @@ a#skip-nav:focus {
 
 div#shop {
 	grid-template-columns: repeat(60, 1fr);
-	column-gap: calc(5px + 0.35vw);
-	row-gap: calc(8px + 0.5vw);
+	column-gap: calc(6px + 0.25vw);
+	row-gap: calc(8.5px + 0.4vw);
 
 	padding: 12.5px;
+	margin-bottom: calc(20px + 1vmax);
 }
 
 div.shop-item {
 	grid-column: span 60;	/* 1 per row -- # of shop-items icreases with vw */
-	grid-row: span 2;
 
-	max-width: 90vw;
+	max-width: 85vw;
 	box-shadow: -10px 10px 6.5px -7.5px #918F76;
+
+	background-color: var(--brand-secondary);
+}
+
+/* bright orange outline when focused via tab or click */
+div.shop-item:focus {
+	outline: clamp(3px, 0.15vw, 6px) solid #F28423;
 }
 
 img.shop-thumbnail {
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: cover;
-	margin-bottom: -10px;
 }
 
 div.item-info {
-	padding-inline: 5px;
-
-	background-color: var(--brand-secondary);
+	padding: 0 5px 5px 5px;
 }
 
 div.item-info > span.item-name {
 	display: block;
 
+	text-transform: uppercase;
 	font-size: 1.2rem;
 	font-weight: 400;
 	text-align: center;
@@ -287,7 +286,7 @@ div.item-info > span.price {
 
 footer {
 	/* Socials Size */
-	--footer-social: calc(27.5px + 2.75vmin);
+	--footer-social: calc(27.5px + 2.5vmin);
 
 	/* Grid */
 	grid-template-columns: repeat(15, 1fr);
@@ -295,40 +294,34 @@ footer {
 
 	/* Box Model */
 	border-top: 2px solid var(--link-main);
-	height: calc(100px + 12.5vh);
-	margin-top: calc(50px + 5vh);
-	padding-top: calc(8px + 1vmin);
+	height: calc(165px + 15vmin);
+	margin-top: calc(50px + 1vmax);
+	padding-top: calc(10px + 0.5vmin);
 
 	/* Colors */
 	color: var(--text-main);
 	background: var(--brand-secondary);
 }
 
-ul.footer-list {
-	display: flex;
-	list-style-type: none;
-	justify-content: center;
-	height: var(--footer-social);
-}
-
 ul#social-list {
 	grid-column: span 15;
 	grid-row: 1;
+
+	display: flex;
+	list-style-type: none;
+	justify-content: center;
+	height: calc(var(--footer-social) + 0.2vw);
 }
 
-li.footer-item {
+li.social-item {
 	float: left;
-}
-
-a.social-link:focus,
-a.social-link:visited:focus {
-	background: var(--brand-primary);
+	padding-block: 0.1vmax;
 }
 
 img.social-img {
 	width: var(--footer-social);
 	height: var(--footer-social);
-	margin-inline: calc(2px + 0.1vw);
+	margin-inline: 0.2vw;
 	border-radius: 50%;
 }
 
@@ -349,6 +342,14 @@ img.social-img:hover {
 ul#additional-links {
 	grid-column: span 15;
 	grid-row: 6;
+
+	display: flex;
+	list-style-type: none;
+	justify-content: center;
+}
+
+li.bottom-item {
+	float: left;
 }
 
 a.bottom-link,
@@ -364,30 +365,54 @@ a.bottom-link:hover:visited {
 	text-decoration: underline;
 }
 
-a.bottom-link:focus,
-a.bottom-link:visited:focus {
-	background: var(--brand-primary);
-
-	padding: 3px;
-	border-radius: 50%;
-}
-
 /* 	7. Media Queries */
 
-/* large desktop screens and TVs */
-@media only screen and (min-width: 2700px) {
+/* TVs */
+@media only screen and (min-width: 3200px) {
+	:root {
+		font-size: calc(22.5px + 0.3vw);
+	}
+
 	main {
-		padding-inline: 5vmax;
+		padding-inline: 4.5vmax;
 	}
 
 	div.shop-item {
 		grid-column: span 6;	/* 10 per row */
 	}
+
+	p {
+		max-width: 90ch;
+	}
 }
 
-@media only screen and (min-width: 1920px) and (max-width: 2700px) {
+/* large desktop screens */
+@media only screen and (min-width: 2400px) and (max-width: 3200px) {
+	:root {
+		font-size: calc(20px + 0.25vw);
+	}
+
 	main {
-		padding-inline: 5vmax;
+		padding-inline: 4.25vmax;
+	}
+
+	div#shop {
+		grid-template-columns: repeat(24, 1fr);
+	}
+
+	div.shop-item {
+		grid-column: span 3;	/* 8 per row */
+	}
+
+	p {
+		max-width: 80ch;
+	}
+}
+
+/* larger laptops and standard desktops */
+@media only screen and (min-width: 1600px) and (max-width: 2400px) {
+	main {
+		padding-inline: 4vmax;
 	}
 
 	div.shop-item {
@@ -395,8 +420,8 @@ a.bottom-link:visited:focus {
 	}
 }
 
-/* desktop screens */
-@media only screen and (min-width: 1420px) and (max-width: 1920px) {
+/* laptops */
+@media only screen and (min-width: 1280px) and (max-width: 1600px) {
 	main {
 		padding-inline: 3.75vmax;
 	}
@@ -406,8 +431,8 @@ a.bottom-link:visited:focus {
 	}
 }
 
-/* notebooks and laptops */
-@media only screen and (min-width: 1136px) and (max-width: 1420px) {
+/* notebooks */
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
 	main {
 		padding-inline: 3vmax;
 	}
@@ -417,7 +442,8 @@ a.bottom-link:visited:focus {
 	}
 }
 
-@media only screen and (min-width: 1000px) {
+/* switch nav bars on any viewport width over 1000 px */
+@media only screen and (min-width: 848px) {
 	nav#nav-desktop {
 		display: block;
 	}
@@ -428,7 +454,7 @@ a.bottom-link:visited:focus {
 }
 
 /* tablets */
-@media only screen and (min-width: 848px) and (max-width: 1136px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
 	main {
 		padding-inline: 2.5vmax;
 	}
@@ -438,8 +464,8 @@ a.bottom-link:visited:focus {
 	}
 }
 
-/* bigger phones */
-@media only screen and (min-width: 520px) and (max-width: 848px) {
+/* bigger phones (base CSS is mobile-first) */
+@media only screen and (min-width: 480px) and (max-width: 768px) {
 	div.shop-item {
 		grid-column: span 30;	/* 2 per row */
 	}
