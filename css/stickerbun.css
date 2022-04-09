@@ -53,6 +53,7 @@ nav#nav-mobile {
 	/* Display & Box Model */
 	height: var(--nav-height);
 	align-items: center;
+	margin-bottom: 1vmin;
 
 	/* Color */
 	background: var(--brand-secondary);
@@ -69,7 +70,7 @@ nav#nav-desktop {
 	/* Display & Box Model */
 	display: none;
 	height: var(--nav-height);
-	margin-bottom: calc(20px + 0.5vmin);
+	margin-bottom: 1vmin;
 
 	/* Color */
 	background: var(--brand-secondary);
@@ -138,8 +139,8 @@ a.link-current:visited:hover {
 main {
 	display: flex;
 	flex-direction: column;
-	align-items:center;
-	padding-block: calc(22.5px + 0.75vmax);
+	align-items: center;
+	padding-block: calc(12.5px + 0.25vmax);
 	padding-inline: 14px;
 	scroll-behavior: smooth;
 }
@@ -151,7 +152,7 @@ main {
 /*	4. Text */
 
 h1 {
-	margin-block: calc(10px + 1vh);
+	margin-block: calc(10px + 0.5vh);
 	max-width: 70ch;
 
 	text-align: center;
@@ -203,13 +204,13 @@ a:visited:focus:not(a.nav-link, a.bottom-link) {
 	background: var(--brand-secondary);
 }
 
-/* 	located above viewport, skip to main-content, which is located below the nav bar */
+/* 	hidden above viewport, skip to main-content, which is located below the nav bar */
 a#skip-nav {
 	z-index: 9999;
 	position: absolute;
 	padding: 10px 15px;
 	border-radius: 0 0 10px 10px;
-	transform: translateY(-130%);
+	transform: translateY(-10vh);
 	border: 1.4px solid var(--text-main);
 
 	background: var(--brand-primary);
@@ -224,16 +225,16 @@ a#skip-nav:visited:hover {
 	color: var(--link-hover);
 }
 
-/* 	^only pops into viewport when focused */
+/* 	only pops into viewport when focused */
 a#skip-nav:focus {
-	transform: translateY(-20%);
+	transform: translateY(-1vh);
 }
 
 /*	5. Shop */
 
 div#shop {
 	grid-template-columns: repeat(60, 1fr);
-	column-gap: calc(6px + 0.25vw);
+	column-gap: calc(5px + 0.35vw);
 	row-gap: calc(8.5px + 0.4vw);
 
 	padding: 12.5px;
@@ -243,7 +244,6 @@ div#shop {
 div.shop-item {
 	grid-column: span 60;	/* 1 per row -- # of shop-items icreases with vw */
 
-	max-width: 85vw;
 	box-shadow: -10px 10px 6.5px -7.5px #918F76;
 
 	background-color: var(--brand-secondary);
@@ -251,7 +251,7 @@ div.shop-item {
 
 /* bright orange outline when focused via tab or click */
 div.shop-item:focus {
-	outline: clamp(3px, 0.15vw, 6px) solid #F28423;
+	outline: clamp(1.5px, 0.5vmin, 7.5px) solid #F28423;
 }
 
 img.shop-thumbnail {
@@ -261,7 +261,7 @@ img.shop-thumbnail {
 }
 
 div.item-info {
-	padding: 0 5px 5px 5px;
+	padding-bottom: 10px;
 }
 
 div.item-info > span.item-name {
@@ -370,7 +370,7 @@ a.bottom-link:hover:visited {
 /* TVs */
 @media only screen and (min-width: 3200px) {
 	:root {
-		font-size: calc(22.5px + 0.3vw);
+		font-size: calc(22.5px + 0.2vw);
 	}
 
 	main {
@@ -442,8 +442,8 @@ a.bottom-link:hover:visited {
 	}
 }
 
-/* switch nav bars on any viewport width over 1000 px */
-@media only screen and (min-width: 848px) {
+/* switch nav bars on any viewport width over 768 px */
+@media only screen and (min-width: 768px) {
 	nav#nav-desktop {
 		display: block;
 	}
@@ -465,8 +465,66 @@ a.bottom-link:hover:visited {
 }
 
 /* bigger phones (base CSS is mobile-first) */
-@media only screen and (min-width: 480px) and (max-width: 768px) {
+@media only screen and (min-width: 512px) and (max-width: 768px) {
 	div.shop-item {
 		grid-column: span 30;	/* 2 per row */
+	}
+}
+
+/* very short viewports */
+@media only screen and (max-height: 532px) {
+	main {
+		padding-block: 5px;
+	}
+
+	h1 {
+		margin-top: 5px;
+	}
+
+	div#shop {
+		padding-top: 4px;
+	}
+
+	div.shop-item {
+		text-align: center;
+	}
+
+	img.shop-thumbnail {
+		max-height: 82.5%;
+	}
+}
+
+/* very thin viewports */
+@media only screen and (max-width: 324px) {
+	main {
+		padding-inline: 0;
+	}
+
+	div#shop {
+		padding-top: 4px;
+	}
+
+	div.shop-item {
+		text-align: center;
+	}
+
+	img.shop-thumbnail {
+		max-width: 80%;
+	}
+}
+
+/* Nokia 8110 4G and similar, less common devices */
+@media only screen and (max-width: 240px) and (max-height: 320px) {
+	main {
+		padding-block: 2px;
+	}
+
+	h1 {
+		margin-block: 2px;
+	}
+
+	img.shop-thumbnail {
+		max-width: 70%;
+		max-height: 70%;
 	}
 }
