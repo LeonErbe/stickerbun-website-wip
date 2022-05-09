@@ -8,11 +8,11 @@
 	6. Footer
 	7. Media Queries
 
-	-----------------------------	*/
+	-------------------------------	*/
 
-/* 	1. Root ---- mobile first */
+/*	1. Global - mobile first */
 
-/* reset margin, padding, and font-weight to override later */
+/*	reset margin, padding, overlow, and font-weight to override later */
 * {
 	margin: 0;
 	padding: 0;
@@ -21,61 +21,63 @@
 	font-weight: 300;
 }
 
-:root {
+html {
 	/* Color Variables */
-	--brand-primary: #FFFDF6; 	/* yellowy offwhite */
-	--brand-secondary: #E0EFDC; /* sea-foamy green, but more yellow */
-	--text-main: #333; 			/* charcoal, but no blue */
-	--link-main: #438E41; 		/* forest green */
-	--link-hover: #93C785;		/* brand-secondary, but darker */
+	--brand-primary: #FFFDF6; 					/* yellowy offwhite */
+	--brand-secondary: #E0EFDC;					/* sea-foamy green, but more yellow */
+	--text-main: #4D4D4D; 						/* light charcoal */
+	--link-main: #336F4B; 						/* forest green */
+	--link-hover: #93C785;						/* brand-secondary, but darker */
+	--shadow: #84826A;							/* yellow gray */
+	--card: #FFCA78;
+	--accent: #016490;
+	--nav-height: calc(32.5px + 1vmax);			/* height of <nav> elements */
+	--footer-social: calc(27.5px + 2.5vmin);	/* width & height of social icons in <footer> */
 
-	/* Display & Box Model */
-	overflow-x: hidden;
+	/* Scroll Behavior */
 	overflow-y: scroll;
+	scroll-behavior: smooth;
 
 	/* Color */
-	background: var(--brand-primary);
+	background-color: var(--brand-primary);
 	color: var(--text-main);
 
 	/* Text */
 	font-family: 'Roboto Condensed', sans-serif;
-	font-size: calc(16px + 0.2vw);
+	font-size: calc(14px + 0.3vmin);
 	line-height: 1.55;
 }
 
-/* 	2. Nav */
+/*	aligns <li> horizontally instead of stacking vertically*/
+ul > li {
+	float: left;
+}
 
-/* if(viewport-width < 950px) */
+/*	2. Nav */
+
+/*	if(viewport-width < 640px) */
 nav#nav-mobile {
-	/* Nav Height */
-	--nav-height: calc(35px + 1.25vw);
-
-	/* Display & Box Model */
+	position: fixed;
+	width: 100vw;
 	height: var(--nav-height);
 	align-items: center;
-	margin-bottom: 1vmin;
+	z-index: 1;
 
-	/* Color */
-	background: var(--brand-secondary);
+	background-color: var(--brand-secondary);
 
-	/* Text */
 	text-align: center;
 }
 
-/* 	if(viewport-width >= 950px) */
+/*	if(viewport-width >= 640px) */
 nav#nav-desktop {
-	/* Nav Height */
-	--nav-height: calc(35px + 1.5vmax);
-
-	/* Display & Box Model */
 	display: none;
+	position: fixed;
+	width: 100vw;
 	height: var(--nav-height);
-	margin-bottom: 1vmin;
+	z-index: 1;
 
-	/* Color */
-	background: var(--brand-secondary);
+	background-color: var(--brand-secondary);
 
-	/* Text */
 	text-align: center;
 }
 
@@ -92,72 +94,89 @@ ul#nav-list {
 }
 
 li.nav-item {
-	float: left;
 	line-height: var(--nav-height);
 }
 
-li.nav-item:hover {
-	background: var(--brand-primary);
-}
-
-a.nav-link {
-	/* Display & Box Model */
+a.nav-link,
+a.nav-link:visited {
 	display: block;
 	margin-inline: clamp(10px, 2vw, 50px);
 
-	/* Color */
 	color: var(--link-main);
 
-	/* Text */
-	font-size: calc(1.1rem + 0.2vw);
+	font-size: calc(1.15rem + 0.175vw);
+	text-transform: uppercase;
 }
 
-a.nav-link:hover,
-a.nav-link:hover:visited,
-a.nav-link:visited {
-	color: var(--link-main);
+/*	JavaScript highlights nav tab in forest green when current */
+li.item-current {
+	background-color: var(--link-main);
 }
 
-/* 	activated via JavaScript when current */
-li.item-current,
-li.item-current:hover {
-	background: var(--link-main);
-}
-
-/* 	activated via JavaScript when current */
+/*	...also affects text */
 a.link-current,
-a.link-current:hover,
-a.link-current:visited,
-a.link-current:visited:hover {
+a.link-current:visited {
 	color: var(--brand-primary);
 
 	font-weight: 400;
 }
 
-/* 	3. Containers */
+a.nav-link:focus {
+	outline: none;
+
+	text-decoration: underline;
+}
+
+/*	3. Containers */
 
 main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-block: calc(12.5px + 0.25vmax);
-	padding-inline: 14px;
-	scroll-behavior: smooth;
 }
 
 .grid {
 	display: grid;
 }
 
+a#cart-link,
+a#cart-link:visited {
+	right: 25px;
+	bottom: 25px;
+	display: flex;
+	position: fixed;
+	padding: 0.75vmax;
+	border-radius: 50%;
+	filter: drop-shadow(0 0.15vw 0.3vw var(--text-main));
+	z-index: 2;
+
+	background-color: var(--link-main);
+
+	text-align: center;
+}
+
+a#cart-link:focus {
+	outline: 2px solid skyblue;
+	filter: drop-shadow(0 0.15vw 0.3vw lightskyblue);
+}
+
+img#cart-icon {
+	--cart-size: clamp(35px, 5vmin, 75px);
+	width: var(--cart-size);
+	height: var(--cart-size);
+}
+
 /*	4. Text */
 
 h1 {
-	margin-block: calc(10px + 0.5vh);
+	margin-top: calc(65px + 3.75vh);
+	margin-bottom: calc(20px + 1vh);
 	max-width: 70ch;
 
 	text-align: center;
 	font-size: calc(1.25rem + 1vw);
 	text-transform: uppercase;
+	letter-spacing: 0.5px;
 	font-weight: 400;
 }
 
@@ -185,7 +204,7 @@ p {
 	max-width: 70ch;
 	margin-bottom: 16px;
 
-	font-size: calc(1.02rem + 0.2vw)
+	font-size: 1.5rem
 }
 
 a, a:visited {
@@ -194,149 +213,137 @@ a, a:visited {
 	text-decoration: none;
 }
 
-a:hover:not(a.nav-link, a.nav-current, a.bottom-link),
-a:visited:hover:not(a.nav-link, a.nav-current, a.bottom-link) {
-	color: var(--link-hover);
-}
-
-a:focus:not(a.nav-link, a.bottom-link),
-a:visited:focus:not(a.nav-link, a.bottom-link) {
-	background: var(--brand-secondary);
-}
-
-/* 	hidden above viewport, skip to main-content, which is located below the nav bar */
-a#skip-nav {
-	z-index: 9999;
+/*	hidden above viewport, skip to #main-content */
+a#skip-nav,
+a#skip-nav:visited {
+	left: 5px;
+	z-index: 3;
 	position: absolute;
 	padding: 10px 15px;
 	border-radius: 0 0 10px 10px;
-	transform: translateY(-10vh);
+	transform: translateY(-120%);
 	border: 1.4px solid var(--text-main);
 
-	background: var(--brand-primary);
-}
-
-a#skip-nav:visited {
-	color: var(--link-main);
-}
-
-a#skip-nav:hover,
-a#skip-nav:visited:hover {
-	color: var(--link-hover);
+	background-color: var(--brand-primary);
 }
 
 /* 	only pops into viewport when focused */
 a#skip-nav:focus {
-	transform: translateY(-1vh);
+	transform: translateY(-20%);
 }
 
 /*	5. Shop */
 
-div#shop {
+section#shop {
 	grid-template-columns: repeat(60, 1fr);
-	column-gap: calc(5px + 0.35vw);
-	row-gap: calc(8.5px + 0.4vw);
-
-	padding: 12.5px;
-	margin-bottom: calc(20px + 1vmax);
+	column-gap: calc(6px + 0.3vw);
+	row-gap: calc(8px + 0.35vw);
 }
 
-div.shop-item {
-	grid-column: span 60;	/* 1 per row -- # of shop-items icreases with vw */
+div.shop-card {
+	grid-column: span 60;	/* 1 per row - # of shop-cards icreases with vw */
 
-	box-shadow: -10px 10px 6.5px -7.5px #918F76;
+	border-radius: 26px;
 
-	background-color: var(--brand-secondary);
+	background-color: var(--card);
 }
 
-/* bright orange outline when focused via tab or click */
-div.shop-item:focus {
-	outline: clamp(1.5px, 0.5vmin, 7.5px) solid #F28423;
+/*	outline applied to parent when focus on card or children */
+div.shop-card:focus-within {
+	outline: clamp(1.5px, 0.5vmin, 7.5px) solid var(--accent);
+}
+
+div.shop-card:focus-within > summary.item-info > a.item-name {
+	text-decoration: underline;
 }
 
 img.shop-thumbnail {
-	max-width: 100%;
-	max-height: 100%;
+	width: 100%;
 	object-fit: cover;
+	margin-bottom: -10px;
+	cursor: pointer;
 }
 
-div.item-info {
-	padding-bottom: 10px;
+button.add-to-cart {
+	opacity: 0;
+	position: absolute;
+	width: calc(75px + 3vw);
+	height: calc(30px + 2vh);
+	border-radius: 25px 0 6px 0;
+	border: none;
+	cursor: pointer;
+
+	background-color: var(--link-main);
+	color: var(--brand-primary);
+
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 1.15px;
+	font-weight: 400;
 }
 
-div.item-info > span.item-name {
+summary.item-info {
+	padding-block: 3.5%;
+
+	line-height: 1.375;
+}
+
+summary.item-info > a.item-name, a.item-name:visited {
 	display: block;
 
 	text-transform: uppercase;
-	font-size: 1.2rem;
+	font-size: calc(1.5rem + 0.2vmin);
 	font-weight: 400;
 	text-align: center;
+
+	color: var(--text-main);
 }
 
-div.item-info > span.price {
+summary.item-info > a.item-name:focus, a.item-name:visited:focus {
+	outline: none;
+
+	text-decoration: underline;
+}
+
+summary.item-info > span.price {
 	display: block;
 
 	color: var(--link-main);
 
-	font-size: 1.05rem;
+	font-size: calc(1.2rem + 0.1vmin);
 	text-align: center;
 }
 
-/* 	6. Footer */
+/*	6. Footer */
 
 footer {
-	/* Socials Size */
-	--footer-social: calc(27.5px + 2.5vmin);
-
-	/* Grid */
 	grid-template-columns: repeat(15, 1fr);
 	grid-template-rows: repeat(6, 1fr);
 
-	/* Box Model */
-	border-top: 2px solid var(--link-main);
-	height: calc(165px + 15vmin);
-	margin-top: calc(50px + 1vmax);
-	padding-top: calc(10px + 0.5vmin);
+	border-top: 2px solid #6c975a;
+	height: calc(150px + 10vmin);
 
-	/* Colors */
 	color: var(--text-main);
-	background: var(--brand-secondary);
+	background-color: var(--brand-secondary);
 }
 
 ul#social-list {
 	grid-column: span 15;
 	grid-row: 1;
 
-	display: flex;
+	display: table;
+	margin: 0 auto;
 	list-style-type: none;
-	justify-content: center;
-	height: calc(var(--footer-social) + 0.2vw);
+	margin-block: calc(2.5px + var(--footer-social) * 0.1);
+	height: calc(var(--footer-social) + 0.3vw);
 }
 
-li.social-item {
-	float: left;
-	padding-block: 0.1vmax;
-}
-
-img.social-img {
+img.social-icon {
+	border-radius: 50%;
 	width: var(--footer-social);
 	height: var(--footer-social);
-	margin-inline: 0.2vw;
-	border-radius: 50%;
-}
-
-img.social-img:hover {
-	animation-name: squish;
-	animation-timing-function: ease-out;
-	animation-duration: 1.5s;
-	animation-fill-mode: forwards;
-}
-
-@keyframes squish {							/* TO-DO: fix animation flowing outside img/li/ul element(s) */
-    0%, 100% {transform: scale(1, 1);}
-    10% {transform: scale(1.1, 0.9);}
-    30% {transform: scale(0.9, 1.1);}
-    50% {transform: scale(1, 1);}
+	margin-inline: calc(2px + 0.15vw);
+	margin-block: calc(2.5px + var(--footer-social) * 0.1);
 }
 
 ul#additional-links {
@@ -346,104 +353,251 @@ ul#additional-links {
 	display: flex;
 	list-style-type: none;
 	justify-content: center;
-}
-
-li.bottom-item {
-	float: left;
+	justify-items: center;
+	padding-block: 50px;
 }
 
 a.bottom-link,
 a.bottom-link:visited {
-	margin-block: 10px;
-	margin-inline: calc(8px + 1vw);
+	margin-inline: calc(25px + 1vw);
 
 	font-size: calc(0.5rem + 0.2vmin);
 }
 
-a.bottom-link:hover,
-a.bottom-link:hover:visited {
-	text-decoration: underline;
+/*	7. Media Queries, ordered from smallest to largest & to avoid overlapping */
+
+/*	only active on devices with cursors - typically notebooks and larger */
+@media (hover: hover) and (min-width: 824px) {
+	a#cart-link:hover,
+	a#cart-link:visited:hover {
+		transition: 0.15s;
+		outline: 2px solid skyblue;
+		filter: drop-shadow(0 0.15vw 0.3vw lightskyblue);
+	}
+
+	li.nav-item:hover,
+	li.nav-item:visited:hover {
+		background-color: var(--brand-primary);
+	}
+
+	li.item-current:hover {
+		background-color: var(--link-main);
+	}
+
+	a.nav-link:hover,
+	a.nav-link:visited:hover {
+		color: var(--link-main);
+	}
+
+	a.link-current:hover,
+	a.link-current:visited:hover {
+		color: var(--brand-primary);
+
+		font-weight: 400;
+	}
+
+	a:hover:not(a.nav-link, a.nav-current, a.bottom-link, a.item-name),
+	a:visited:hover:not(a.nav-link, a.nav-current, a.bottom-link, a.item-name) {
+		color: var(--link-hover);
+	}
+
+	a#skip-nav:hover,
+	a#skip-nav:visited:hover {
+		color: var(--link-hover);
+	}
+
+	section#shop {
+		padding-block: calc(75px + 8.75vh);
+		padding-inline: calc(25px + 2.5vw);
+	}
+
+	/*	hovering over card causes card to hover upward */
+	div.shop-card:hover {
+		filter: drop-shadow(0 5.5px 8.75px var(--shadow));
+		transform: translateY(-10%) scale(1.1625);
+		transition: 0.425s ease-out;
+	}
+
+	/*	hovering over card causes add to cart button to fade in */
+	div.shop-card:hover > button.add-to-cart {
+		opacity: 1;
+		transition: 0.525s ease-in;
+		z-index: 2;
+	}
+
+	div.shop-card:hover > summary.item-info > a.item-name {
+		letter-spacing: -0.45px;
+		font-weight: bold;
+	}
+
+	summary.item-info > a.item-name:hover, a.item-name:visited:hover {
+		color: var(--accent);
+
+		letter-spacing: -0.45px;
+		font-weight: bold;
+	}
+
+	/*	animates icons on hover */
+	img.social-icon:hover {
+		animation-name: squish;
+		animation-timing-function: ease-out;
+		animation-duration: 1.5s;
+		animation-fill-mode: forwards;
+	}
+
+	/*	...to play this animation */
+	@keyframes squish {
+	    0%, 100% {transform: scale(1, 1);}
+	    10% {transform: scale(1.1, 0.9);}
+	    30% {transform: scale(0.9, 1.1);}
+	    50% {transform: scale(1, 1);}
+	}
+
+	a.bottom-link:hover,
+	a.bottom-link:hover:visited {
+		text-decoration: underline;
+	}
 }
 
-/* 	7. Media Queries */
-
-/* TVs */
-@media only screen and (min-width: 3200px) {
-	:root {
-		font-size: calc(22.5px + 0.2vw);
+/*	work-around for same as above due to non-support on IE 10 & 11 */
+/*	IE 5 - 9 handled via separate CSS file through cond. comments in <head>*/
+@media screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	a#cart-link:hover,
+	a#cart-link:visited:hover {
+		transition: 0.15s;
+		outline: 2px solid skyblue;
+		filter: drop-shadow(0 0.15vw 0.3vw lightskyblue);
 	}
 
-	main {
-		padding-inline: 4.5vmax;
+	li.nav-item:hover,
+	li.nav-item:visited:hover {
+		background-color: var(--brand-primary);
 	}
 
-	div.shop-item {
-		grid-column: span 6;	/* 10 per row */
+	li.item-current:hover {
+		background-color: var(--link-main);
 	}
 
-	p {
-		max-width: 90ch;
+	a.nav-link:hover,
+	a.nav-link:visited:hover {
+		color: var(--link-main);
+	}
+
+	a.link-current:hover,
+	a.link-current:visited:hover {
+		color: var(--brand-primary);
+
+		font-weight: 400;
+	}
+
+	a:hover:not(a.nav-link, a.nav-current, a.bottom-link, a.item-name),
+	a:visited:hover:not(a.nav-link, a.nav-current, a.bottom-link, a.item-name) {
+		color: var(--link-hover);
+	}
+
+	a#skip-nav:hover,
+	a#skip-nav:visited:hover {
+		color: var(--link-hover);
+	}
+
+	section#shop {
+		padding-block: calc(75px + 8.75vh);
+		padding-inline: calc(25px + 2.5vw);
+	}
+
+	/*	hovering over card causes card to hover upward */
+	div.shop-card:hover {
+		filter: drop-shadow(0 5.5px 8.75px var(--shadow));
+		transform: translateY(-10%) scale(1.1625);
+		transition: 0.425s ease-out;
+	}
+
+	/*	hovering over card causes add to cart button to fade in */
+	div.shop-card:hover > button.add-to-cart {
+		opacity: 1;
+		transition: 0.525s ease-in;
+		z-index: 2;
+	}
+
+	div.shop-card:hover > summary.item-info > a.item-name {
+		letter-spacing: -0.45px;
+		font-weight: bold;
+	}
+
+	summary.item-info > a.item-name:hover, a.item-name:visited:hover {
+		color: var(--accent);
+
+		letter-spacing: -0.45px;
+		font-weight: bold;
+	}
+
+	/*	animates icons on hover */
+	img.social-icon:hover {
+		animation-name: squish;
+		animation-timing-function: ease-out;
+		animation-duration: 1.5s;
+		animation-fill-mode: forwards;
+	}
+
+	/*	...to play this animation */
+	@keyframes squish {
+	    0%, 100% {transform: scale(1, 1);}
+	    10% {transform: scale(1.1, 0.9);}
+	    30% {transform: scale(0.9, 1.1);}
+	    50% {transform: scale(1, 1);}
+	}
+
+	a.bottom-link:hover,
+	a.bottom-link:hover:visited {
+		text-decoration: underline;
 	}
 }
 
-/* large desktop screens */
-@media only screen and (min-width: 2400px) and (max-width: 3200px) {
-	:root {
-		font-size: calc(20px + 0.25vw);
+/*	extra small viewports */
+@media only screen and (max-width: 480px) and (max-height: 532px) {
+	h1 {
+		margin-top: 5px;
 	}
 
-	main {
-		padding-inline: 4.25vmax;
+	div.shop-card {
+		text-align: center;
 	}
 
-	div#shop {
-		grid-template-columns: repeat(24, 1fr);
-	}
-
-	div.shop-item {
-		grid-column: span 3;	/* 8 per row */
-	}
-
-	p {
-		max-width: 80ch;
+	img.shop-thumbnail {
+		max-height: 82.5%;
 	}
 }
 
-/* larger laptops and standard desktops */
-@media only screen and (min-width: 1600px) and (max-width: 2400px) {
-	main {
-		padding-inline: 4vmax;
+/*	Nokia 8110 4G and similar, less common devices */
+@media only screen and (max-width: 240px) and (max-height: 320px) {
+	h1 {
+		margin-block: 2px;
 	}
 
-	div.shop-item {
-		grid-column: span 10;	/* 6 per row */
-	}
-}
-
-/* laptops */
-@media only screen and (min-width: 1280px) and (max-width: 1600px) {
-	main {
-		padding-inline: 3.75vmax;
+	section#shop {
+		padding-block: 11.5vmax;
 	}
 
-	div.shop-item {
-		grid-column: span 12;	/* 5 per row */
+	img.shop-thumbnail {
+		max-width: 90%;
+		max-height: 90%;
 	}
 }
 
-/* notebooks */
-@media only screen and (min-width: 1024px) and (max-width: 1280px) {
-	main {
+/*	bigger phones (base CSS is mobile-first) */
+@media only screen and (min-width: 512px) and (max-width: 824px) {
+	section#shop {
+		padding-block: 9.5vh;
 		padding-inline: 3vmax;
 	}
 
-	div.shop-item {
-		grid-column: span 15;	/* 4 per row */
+	div.shop-card {
+		grid-column: span 30;	/* 2 per row */
 	}
 }
 
-/* switch nav bars on any viewport width over 768 px */
-@media only screen and (min-width: 768px) {
+/*	switch nav bars on any viewport width over 640 px */
+@media only screen and (min-width: 640px) {
 	nav#nav-desktop {
 		display: block;
 	}
@@ -453,78 +607,68 @@ a.bottom-link:hover:visited {
 	}
 }
 
-/* tablets */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-	main {
-		padding-inline: 2.5vmax;
-	}
-
-	div.shop-item {
+/*	tablets */
+@media only screen and (min-width: 824px) and (max-width: 1168px) {
+	div.shop-card {
 		grid-column: span 20;	/* 3 per row */
 	}
 }
 
-/* bigger phones (base CSS is mobile-first) */
-@media only screen and (min-width: 512px) and (max-width: 768px) {
-	div.shop-item {
-		grid-column: span 30;	/* 2 per row */
+/*	laptops */
+@media only screen and (min-width: 1168px) and (max-width: 1600px) {
+	div.shop-card {
+		grid-column: span 15;	/* 4 per row */
 	}
 }
 
-/* very short viewports */
-@media only screen and (max-height: 532px) {
-	main {
-		padding-block: 5px;
-	}
-
-	h1 {
-		margin-top: 5px;
-	}
-
-	div#shop {
-		padding-top: 4px;
-	}
-
-	div.shop-item {
-		text-align: center;
-	}
-
-	img.shop-thumbnail {
-		max-height: 82.5%;
+/*	larger laptops and standard desktops */
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+	div.shop-card {
+		grid-column: span 12;	/* 5 per row */
 	}
 }
 
-/* very thin viewports */
-@media only screen and (max-width: 324px) {
-	main {
-		padding-inline: 0;
-	}
-
-	div#shop {
-		padding-top: 4px;
-	}
-
-	div.shop-item {
-		text-align: center;
-	}
-
-	img.shop-thumbnail {
-		max-width: 80%;
+/*	larger desktops */
+@media only screen and (min-width: 1920px) and (max-width: 2400px) {
+	div.shop-card {
+		grid-column: span 10;	/* 6 per row */
 	}
 }
 
-/* Nokia 8110 4G and similar, less common devices */
-@media only screen and (max-width: 240px) and (max-height: 320px) {
-	main {
-		padding-block: 2px;
+/*	XL desktops and smaller TVs */
+@media only screen and (min-width: 2400px) and (max-width: 3200px) {
+	html {
+		font-size: calc(20px + 0.25vw);
 	}
 
-	h1 {
-		margin-block: 2px;
+	section#shop {
+		grid-template-columns: repeat(28, 1fr);
 	}
 
-	img.shop-thumbnail {
-		max-width: 70%;
-		max-height: 70%;
+	div.shop-card {
+		grid-column: span 4;	/* 7 per row */
+	}
+
+	p {
+		max-width: 80ch;
+	}
+}
+
+/*	TVs */
+@media only screen and (min-width: 3200px) {
+	html {
+		font-size: calc(22.5px + 0.2vw);
+	}
+
+	section#shop {
+		grid-template-columns: repeat(24, 1fr);
+	}
+
+	div.shop-card {
+		grid-column: span 3;	/* 8 per row */
+	}
+
+	p {
+		max-width: 90ch;
 	}
 }
