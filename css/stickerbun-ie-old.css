@@ -1,0 +1,89 @@
+a#cart-link:hover,
+a#cart-link:visited:hover {
+	transition: 0.15s;
+	outline: 2px solid skyblue;
+	filter: drop-shadow(0 0.15vw 0.3vw lightskyblue);
+}
+
+li.nav-item:hover,
+li.nav-item:visited:hover {
+	background-color: var(--brand-primary);
+}
+
+li.item-current:hover {
+	background-color: var(--link-main);
+}
+
+a.nav-link:hover,
+a.nav-link:visited:hover {
+	color: var(--link-main);
+}
+
+a.link-current:hover,
+a.link-current:visited:hover {
+	color: var(--brand-primary);
+
+	font-weight: 400;
+}
+
+a:hover:not(a.nav-link, a.nav-current, a.bottom-link, a.item-name),
+a:visited:hover:not(a.nav-link, a.nav-current, a.bottom-link, a.item-name) {
+	color: var(--link-hover);
+}
+
+a#skip-nav:hover,
+a#skip-nav:visited:hover {
+	color: var(--link-hover);
+}
+
+section#shop {
+	padding-block: calc(75px + 8.75vh);
+	padding-inline: calc(25px + 2.5vw);
+}
+
+/*	hovering over card causes card to hover upward */
+div.shop-card:hover {
+	filter: drop-shadow(0 5.5px 8.75px var(--shadow));
+	transform: translateY(-10%) scale(1.1625);
+	transition: 0.425s ease-out;
+}
+
+/*	hovering over card causes add to cart button to fade in */
+div.shop-card:hover > button.add-to-cart {
+	opacity: 1;
+	transition: 0.525s ease-in;
+	z-index: 2;
+}
+
+div.shop-card:hover > summary.item-info > a.item-name {
+	letter-spacing: -0.45px;
+	font-weight: bold;
+}
+
+summary.item-info > a.item-name:hover, a.item-name:visited:hover {
+	color: var(--accent);
+
+	letter-spacing: -0.45px;
+	font-weight: bold;
+}
+
+/*	animates icons on hover */
+img.social-icon:hover {
+	animation-name: squish;
+	animation-timing-function: ease-out;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
+}
+
+/*	...to play this animation */
+@keyframes squish {
+    0%, 100% {transform: scale(1, 1);}
+    10% {transform: scale(1.1, 0.9);}
+    30% {transform: scale(0.9, 1.1);}
+    50% {transform: scale(1, 1);}
+}
+
+a.bottom-link:hover,
+a.bottom-link:hover:visited {
+	text-decoration: underline;
+}
