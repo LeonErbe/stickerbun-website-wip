@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
-	<title>StickerBun | Shop Handmade Stickers and Art</title>
+	<title>StickerBun | Shop Handmade Stickers and Other Artwork</title>
 	<link rel="icon" type="image/jpg" href="img/logo.jpg">
 
 	<!-- Google Font Roboto Condensed Light -->
@@ -12,10 +12,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="css/stickerbun.css">
+	<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="stickerbun-ie-old.css"/>
+	<![endif]-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script type="text/javascript" src="js/stickerbun.js"></script>
-	<meta name="description" content="Buy handmade, waterproof stickers and other art at reasonable prices — and support a woman-owned small business!">
-	<meta name="keywords" content=""> <!-- no more than 10 keywords, up to 160 characters in length -->
+	<script src="js/products.json" type="text/javascript"></script>
+	<meta name="description" content="Browse handmade, waterproof stickers and other artwork online, crafted and sold by a small business owner.">
+	<meta name="keywords" content="">	<!-- no more than 10 keywords, up to 160 characters in length -->
 	<meta name="author" content="StickerBun">
 	<meta name="designer" content="Leon Erbe">
 	<meta name="web_author" content="Leon Erbe, leon.c.erbe@gmail.com">
@@ -24,87 +27,462 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
 <body>
-	<a href="#main-content" tabindex="1" id="skip-nav">Skip to Content</a> <!-- accessibility: ignore nav bar by skipping to main-content -->
-	<header role="navigation">
+	<a href="#main-content" tabindex="1" id="skip-nav">Skip to Content</a>	<!-- accessibility: ignore nav bar by skipping to main-content -->
+	<header role="navigation" id="nav">
 		<nav id="nav-mobile">
-			<a href="index.html"><img src="img/logo.jpg" alt="StickerBun Logo" role="logo" id="nav-logo"></a>
+			<a href="index.html" tabindex="-1"><img src="img/logo.jpg" alt="StickerBun Logo" role="logo" id="nav-logo"></a>
 		</nav>
 		<nav id="nav-desktop">
-			<a href="index.html"><img src="img/logo.jpg" alt="StickerBun Logo" role="logo" id="nav-logo"></a>
+			<a href="index.html" tabindex="-1"><img src="img/logo.jpg" alt="StickerBun Logo" role="logo" id="nav-logo"></a>
 			<ul id="nav-list">
-				<li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
-				<li class="nav-item"><a href="shop.html" class="nav-link">SHOP</a></li>
+				<li class="nav-item"><a href="index.html" class="nav-link">SHOP</a></li>
 				<li class="nav-item"><a href="reviews.html" class="nav-link">REVIEWS</a></li>
 				<li class="nav-item"><a href="about.html" class="nav-link">ABOUT</a></li>
 				<li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
 				<li class="nav-item"><a href="contact.html" class="nav-link">CONTACT</a></li>
 			</ul>
 		</nav>
-		<script src="js/stickerbun.js">
-			currentPage();	//indicates current page in nav bar by adding classes to li and a tags -- stickerbun.js, line 1
-		</script>
-	</header>
+	</header role="navigation">
 	<main id="main-content">
-		<h1>Your One-Stop Shop For Stickers, Art, and More!</h1>
-		<p>
-			Hi! My name is Rahatul Erbe, an artist and small business owner from Atlanta, GA.<br>
-			I've been selling my stickers and other art on <a href="https://StickerBun.etsy.com">Etsy</a> since 2018 and earned people's business over 1,200 times since. The <a href="reviews.html">testimonials</a> speak for themselves! If you'd like to learn more about my background and me, head over to my <a href="about.html">about me page</a> &#128522;
-		</p>
-		<p>
-			Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin
-		</p>
-		<p>
-			Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin
-		</p>
-		<p>
-			decipher Keraunia superb Pandemos unplunged ngapi nonperjury miscontinuance witheredly sauterelle restiveness siliquose demonologer oleothorax unbain homotaxis zeoscope traik staurion leady launcher Mochica layaway exorbitantly decipher Keraunia superb Pandemos unplunged ngapi nonperjury miscontinuance witheredly sauterelle restiveness siliquose demonologer oleothorax unbain homotaxis zeoscope traik staurion leady launcher Mochica layaway exorbitantly decipher Keraunia superb Pandemos unplunged ngapi nonperjury miscontinuance witheredly sauterelle restiveness siliquose demonologer oleothorax unbain homotaxis zeoscope traik staurion leady launcher Mochica layaway exorbitantly
-		</p>
-		<p>
-			sonk misreprint disengagedness Siegmund postvarioloid stainierite bedcord coembody Mindererus assertorially overripeness suprahistorical scythesmith Phigalian seigniorial saburration enostosis palaeodendrologic antipodagric gerb stabile Yomud altarwise Wasukuma sonk misreprint disengagedness Siegmund postvarioloid stainierite bedcord coembody Mindererus assertorially overripeness suprahistorical scythesmith Phigalian seigniorial saburration enostosis palaeodendrologic antipodagric gerb stabile Yomud altarwise Wasukuma
-		</p>
-		<p>
-			Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin Hutchinsonianism hypercoracoid nonsparing medisance correality missyllabify strippler bisexuous undowny citizendom coltsfoot pepper scuddy skair quinicine cryptomnesia milha unviolated asiderite oleothorax Dithyrambus Filipinization perkiness amin
-		</p>
-		<p>
-			decipher Keraunia superb Pandemos unplunged ngapi nonperjury miscontinuance witheredly sauterelle restiveness siliquose demonologer oleothorax unbain homotaxis zeoscope traik staurion leady launcher Mochica layaway exorbitantly decipher Keraunia superb Pandemos unplunged ngapi nonperjury miscontinuance witheredly sauterelle restiveness siliquose demonologer oleothorax unbain homotaxis zeoscope traik staurion leady launcher Mochica layaway exorbitantly decipher Keraunia superb Pandemos unplunged ngapi nonperjury miscontinuance witheredly sauterelle restiveness siliquose demonologer oleothorax unbain homotaxis zeoscope traik staurion leady launcher Mochica layaway exorbitantly
-		</p>
-		<p>
-			sonk misreprint disengagedness Siegmund postvarioloid stainierite bedcord coembody Mindererus assertorially overripeness suprahistorical scythesmith Phigalian seigniorial saburration enostosis palaeodendrologic antipodagric gerb stabile Yomud altarwise Wasukuma sonk misreprint disengagedness Siegmund postvarioloid stainierite bedcord coembody Mindererus assertorially overripeness suprahistorical scythesmith Phigalian seigniorial saburration enostosis palaeodendrologic antipodagric gerb stabile Yomud altarwise Wasukuma
-		</p>
+		<!-- will eventually be a link to the user's shopping cart; currently links to the top of index.html -->
+		<a href="index.html#nav" id="cart-link"><img src="img/cart-white.png" alt="Shop Link" id="cart-icon"></a>
+		<!-- shop start -->
+		<noscript>
+			<p>
+				While the basic information does display without JavaScript enabled, enabling it is highly recommended for the intended user experience. Certain vital functionalities may be completely unavailable without JavaScript enabled.<br>
+				<br>
+				For information on how to enable JavaScript, visit <a href="https://www.enable-javascript.com">https://www.enable-javascript.com</a>
+			</p>
+		</noscript>
+		<section class="grid" id="shop">
+			<noscript>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?losangeles" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?atlanta" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?los-angeles" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?atl" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?santamonica" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?yosemite" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?beverlyhills" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?chicago" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?denver" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?beverly-hills" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?hollywood" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?miami" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?newyork" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?santa-monica" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?socal" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?arizona" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?virginia" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?newyorkcity" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?nationalpark" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?usa" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?hollywood-hills" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?california" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?florida" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?newyork-city" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?sanfrancisco" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?national-park" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?north-carolina" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?united-states" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?yellowstone" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?new-york-city" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?grandcanyon" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?san-francisco" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?cleveland" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?illinois" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?nocal" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?wyoming" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?grand-canyon" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?unitedstates" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?montana" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?colorado" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?newmexico" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?washington" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?texas" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?utah" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?tennessee" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?southern-california" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?hawaii" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+				<div class="shop-card" tabindex="-1">
+					<button class="add-to-cart">Add To Cart</button>
+					<img src="https://source.unsplash.com/random/1280x1024/?oregon" class="shop-thumbnail">
+					<summary class="item-info">
+						<a href="#" class="item-name">This Is A Sticker</a>
+						<span class="price">$1,000,000</span>
+					</summary>
+				</div>
+			</noscript>
+		</section>
+		<!-- shop end -->
 	</main>
 	<footer role="footer" class="grid">
-		<ul class="footer-list" id="social-list">
-			<li class="social-item">
+		<!-- social icons with embedded links start -->
+		<ul id="social-list">
+			<li>
 				<a href="https://www.facebook.com/StickerBun" class="social-link">
-					<img src="img/social-icons/fb-circle.png" alt="Facebook" class="social-img" id="fb">
+					<img src="img/social-icons/fb-circle.png" alt="Facebook" class="social-icon" id="fb">
 				</a>
 			</li>
-			<li class="social-item">
+			<li>
 				<a href="https://www.instagram.com/StickerBun" class="social-link">
-					<img src="img/social-icons/ig-square.png" alt="Instagram" class="social-img">
+					<img src="img/social-icons/ig-square.png" alt="Instagram" class="social-icon">
 				</a>
 			</li>
-			<li class="social-item">
+			<li>
 				<a href="https://www.twitter.com/StickerBun" class="social-link">
-					<img src="img/social-icons/twitter-circle.png" alt="Twitter" class="social-img">
+					<img src="img/social-icons/twitter-circle.png" alt="Twitter" class="social-icon">
 				</a>
 			</li>
-			<li class="social-item">
+			<li>
 				<a href="https://www.linkedin.com/in/rahatul-erbe" class="social-link">
-					<img src="img/social-icons/linkedin-circle.png" alt="LinkedIn" class="social-img">
+					<img src="img/social-icons/linkedin-circle.png" alt="LinkedIn" class="social-icon">
 				</a>
 			</li>
-			<li class="social-item">
+			<li>
 				<a href="https://www.youtube.com/c/RahaErbe" class="social-link">
-					<img src="img/social-icons/yt-circle.png" alt="YouTube" class="social-img">
+					<img src="img/social-icons/yt-circle.png" alt="YouTube" class="social-icon">
 				</a>
 			</li>
 		</ul>
+		<!-- social icons with embedded links end -->
 		<ul id="additional-links">
-			<li class="bottom-item"><a href="https://github.com/LeonErbe" class="bottom-link">Copyright</a></li>
-			<li class="bottom-item"><a href="https://github.com/LeonErbe" class="bottom-link">Privacy Policy</a></li>
-			<li class="bottom-item"><a href="https://github.com/LeonErbe" class="bottom-link">Terms of Use</a></li>
+			<li><a href="https://github.com/LeonErbe" class="bottom-link">Copyright</a></li>
+			<li><a href="https://github.com/LeonErbe" class="bottom-link">Privacy Policy</a></li>
+			<li><a href="https://github.com/LeonErbe" class="bottom-link">Terms of Use</a></li>
 		</ul>
 	</footer>
+	<script src="js/stickerbun.js">
+		currentPage();	//indicates current page in nav bar by adding classes to li and a tags, referenced in stickerbun.js line 1
+	</script>
+	<script type="text/javascript" src="js/shop.js"></script>
 </body>
 </html>
